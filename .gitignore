@@ -1,0 +1,6 @@
+wicket-quickstart/target
+target
+*.ipr
+*.iml
+*.iws
+.idea
