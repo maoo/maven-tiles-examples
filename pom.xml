@@ -12,17 +12,53 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>examples-parent</artifactId>
   <groupId>it.session.maven</groupId>
+  <artifactId>wicket-quickstart</artifactId>
   <packaging>pom</packaging>
-  <name>Maven Tiles Examples Parent POM</name>
   <version>0.8-SNAPSHOT</version>
+  <name>wicket-quickstart</name>
+  <description>Wicket Quickstart to test tiles-maven-plugin</description>
 
   <modules>
-    <module>tiles</module>
-    <module>wicket-quickstart</module>
+    <module>wicket-components</module>
+    <module>wicket-webapp</module>
   </modules>
 
+  <properties>
+    <tile.eclipse>it.session.maven.tiles:maven-eclipse-tile:1.0</tile.eclipse>
+    <tile.maven.repositories>it.session.maven.tiles:session-repositories-tile:1.0</tile.maven.repositories>
+    <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
+
+    <!-- Tiles configuration -->
+    <!--<jetty.plugin.version>9.1</jetty.plugin.version>-->
+    <!--<wicket.version>1.5-RC4.2</wicket.version>-->
+
+    <maventiles.plugin.version>0.8-beta-6-SNAPSHOT</maventiles.plugin.version>
+    <compile.plugin.debug>true</compile.plugin.debug>
+    <eclipse.plugin.download.sources>true</eclipse.plugin.download.sources>
+
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>it.session.maven</groupId>
+      <artifactId>wicket-dependencies</artifactId>
+      <version>1.0</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>it.session.maven.plugins</groupId>
+        <artifactId>tiles-maven-plugin</artifactId>
+        <version>${maventiles.plugin.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
