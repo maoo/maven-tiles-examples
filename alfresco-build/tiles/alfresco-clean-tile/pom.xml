@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.session.maven.tiles</groupId>
+  <artifactId>alfresco-clean-tile</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Maven Tile - Maven Clean Plugin configuration for Alfresco project</name>
+
+  <properties>
+    <maven.clean.version>2.5</maven.clean.version>
+    <app.log.dir>${project.build.directory}/</app.log.dir>
+    <alfresco.data.location>alf_data_dev</alfresco.data.location>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven.clean.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profile>
+    <id>purge</id>
+    <build>
+      <plugins>
+        <!-- Cleaning Alfresco Repository storage/log folders/files -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <configuration>
+            <filesets>
+              <fileset>
+                <directory>${project.basedir}/${alfresco.data.location}</directory>
+              </fileset>
+              <fileset>
+                <directory>${app.log.dir}</directory>
+                <includes>
+                  <include>*.log</include>
+                </includes>
+              </fileset>
+            </filesets>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+
+</project>

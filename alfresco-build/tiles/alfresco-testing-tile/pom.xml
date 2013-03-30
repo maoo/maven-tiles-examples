@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.session.maven.tiles</groupId>
+  <artifactId>alfresco-testing-tile</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Maven Tile - Maven testing configuration for Alfresco project</name>
+
+  <properties>
+    <app.amp.folder>src/main/amp</app.amp.folder>
+    <app.amp.test.output.folder>${project.build.directory}/amp-test-classpath</app.amp.test.output.folder>
+    <app.filtering.enabled>true</app.filtering.enabled>
+    <app.testing.jvm.args>-Xms256m -Xmx1524m -XX:MaxPermSize=256m -Duser.language=en</app.testing.jvm.args>
+    <alfresco.groupId>org.alfresco</alfresco.groupId>
+    <alfresco.version>4.2.c</alfresco.version>
+
+    <maven.resources.version>2.6</maven.resources.version>
+    <maven.surefire.version>2.13</maven.surefire.version>
+    <h2.version>1.3.170</h2.version>
+    <h2-support.version>1.5</h2-support.version>
+    <spring.version>3.0.6.RELEASE</spring.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven.resources.version}</version>
+        <executions>
+          <execution>
+            <id>prepare-amp-testing-classpath</id>
+            <phase>process-test-resources</phase>
+            <goals><goal>copy-resources</goal></goals>
+            <configuration>
+              <outputDirectory>${app.amp.test.output.folder}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${app.amp.folder}/config</directory>
+                  <filtering>${app.filtering.enabled}</filtering>
+                </resource>
+                <resource>
+                  <directory>${app.amp.folder}</directory>
+                  <includes><include>module.properties</include></includes>
+                  <targetPath>alfresco/module/${project.artifactId}</targetPath>
+                  <filtering>${app.filtering.enabled}</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.version}</version>
+        <configuration>
+          <argLine>${app.testing.jvm.args}</argLine>
+          <additionalClasspathElements>
+            <!-- Adds the previously built ${app.amp.test.output.folder} to test classpath to enable module installation at test time -->
+            <additionalClasspathElement>${app.amp.test.output.folder}</additionalClasspathElement>
+          </additionalClasspathElements>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- SDK AMP Testing Dependencies -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>tk.skuro.alfresco</groupId>
+      <artifactId>h2-support</artifactId>
+      <version>${h2-support.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Requires this explicit test dependency, for a Spring 3.0.5 bug
+    |    See https://jira.springsource.org/browse/SPR-8527
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>${alfresco.groupId}</groupId>
+      <artifactId>alfresco-repository</artifactId>
+      <version>${alfresco.version}</version>
+      <classifier>config</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${alfresco.groupId}</groupId>
+      <artifactId>alfresco-data-model</artifactId>
+      <version>${alfresco.version}</version>
+      <classifier>config</classifier>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

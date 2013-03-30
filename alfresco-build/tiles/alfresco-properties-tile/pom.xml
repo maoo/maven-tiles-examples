@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.session.maven.tiles</groupId>
+  <artifactId>alfresco-properties-tile</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Maven Tile - Multi-environment Property configuration for Alfresco project</name>
+
+  <properties>
+    <env>local</env>
+    <app.properties.folder>src/main/properties/${env}</app.properties.folder>
+    <app.properties.test.folder>src/test/properties/${env}</app.properties.test.folder>
+    <app.properties.include>**</app.properties.include>
+    <app.properties.test.include>**</app.properties.test.include>
+    <app.filtering.enabled>true</app.filtering.enabled>
+    <maven.buildhelper.version>1.7</maven.buildhelper.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${maven.buildhelper.version}</version>
+        <executions>
+          <execution>
+            <id>add-env-properties</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>${app.properties.folder}</directory>
+                  <includes>
+                    <include>${app.properties.include}</include>
+                  </includes>
+                  <filtering>${app.filtering.enabled}</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>add-env-test-properties</id>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>add-test-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>${app.properties.test.folder}</directory>
+                  <includes>
+                    <include>${app.properties.test.include}</include>
+                  </includes>
+                  <filtering>${app.filtering.enabled}</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

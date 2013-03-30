@@ -15,17 +15,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>it.session.maven</groupId>
-  <artifactId>wicket-quickstart</artifactId>
+  <groupId>it.session.maven.tiles</groupId>
+  <artifactId>alfresco-tiles-project-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.8-SNAPSHOT</version>
-  <name>wicket-quickstart</name>
-  <description>Wicket Quickstart to test tiles-maven-plugin</description>
+  <version>1.0-SNAPSHOT</version>
+  <name>alfresco-tiles-project-parent</name>
+  <description>Alfresco Tiles Project Parent</description>
 
   <modules>
-    <module>wicket-build</module>
-    <module>wicket-components</module>
-    <module>wicket-webapp</module>
+    <module>alfresco-build</module>
+    <module>custom-repo-amp</module>
+    <module>custom-share-amp</module>
+    <module>repository-war</module>
+    <module>share-war</module>
   </modules>
 
   <properties>

@@ -1,0 +1,62 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.session.maven.tiles</groupId>
+  <artifactId>alfresco-jetty-tile</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Maven Tile - Maven Jetty Plugin configuration</name>
+
+  <properties>
+    <maven.jetty.version>6.1.26</maven.jetty.version>
+    <h2.version>1.3.170</h2.version>
+    <h2-support.version>1.5</h2-support.version>
+    <app.filtering.enabled>true</app.filtering.enabled>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>filter-jetty-conf</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <phase>process-resources</phase>
+            <configuration>
+              <outputDirectory>target</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/jetty</directory>
+                  <filtering>${app.filtering.enabled}</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>${jetty.plugin.version}</version>
+        <configuration>
+          <jettyConfig>${project.build.directory}/jetty.xml</jettyConfig>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>tk.skuro.alfresco</groupId>
+            <artifactId>h2-support</artifactId>
+            <version>${h2-support.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>
