@@ -31,26 +31,25 @@
   </modules>
 
   <properties>
-    <tile.eclipse>it.session.maven.tiles:maven-eclipse-tile:1.0</tile.eclipse>
-    <tile.maven.repositories>it.session.maven.tiles:session-repositories-tile:1.0</tile.maven.repositories>
-    <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
-
-    <!-- Tiles configuration -->
-    <!--<jetty.plugin.version>9.1</jetty.plugin.version>-->
-    <!--<wicket.version>1.5-RC4.2</wicket.version>-->
-
     <maventiles.plugin.version>0.8-beta-6-SNAPSHOT</maventiles.plugin.version>
-    <compile.plugin.debug>true</compile.plugin.debug>
-    <eclipse.plugin.download.sources>true</eclipse.plugin.download.sources>
+    <alfresco.plugin.version>1.0.1</alfresco.plugin.version>
+    <alfresco.groupId>org.alfresco</alfresco.groupId>
+    <alfresco.version>4.2.c</alfresco.version>
 
+    <tile.maven>it.session.maven.tiles:alfresco-maven-tile:1.0</tile.maven>
+    <tile.eclipse>it.session.maven.tiles:alfresco-eclipse-tile:1.0</tile.eclipse>
+    <tile.enforcer>it.session.maven.tiles:alfresco-enforcer-tile:1.0</tile.enforcer>
+    <tile.repositories>it.session.maven.tiles:alfresco-repositories-tile:1.0</tile.repositories>
+    <tile.license>it.session.maven.tiles:session-license-tile:1.0</tile.license>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>it.session.maven</groupId>
-      <artifactId>wicket-dependencies</artifactId>
-      <version>1.0</version>
+      <groupId>${alfresco.groupId}</groupId>
+      <artifactId>alfresco-platform-distribution</artifactId>
+      <version>${alfresco.version}</version>
       <type>pom</type>
+      <scope>import</scope>
     </dependency>
   </dependencies>
 
@@ -62,6 +61,20 @@
         <version>${maventiles.plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
+      <plugin>
+        <groupId>org.alfresco.maven.plugin</groupId>
+        <artifactId>alfresco-maven-plugin</artifactId>
+        <version>${alfresco.plugin.version}</version>
+        <extensions>true</extensions>
+      </plugin>
     </plugins>
   </build>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>alfresco-plugin-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+
 </project>

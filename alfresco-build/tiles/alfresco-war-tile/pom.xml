@@ -27,7 +27,7 @@
     <alfresco.client.war>alfresco</alfresco.client.war>
     <app.filtering.enabled>true</app.filtering.enabled>
     <maven.war.version>2.3</maven.war.version>
-    <maven.alfresco.version>1.0.2-SNAPSHOT</maven.alfresco.version>
+    <maven.alfresco.version>1.0.1</maven.alfresco.version>
     <maven.dependency.version>2.6</maven.dependency.version>
     <maven.resources.version>2.6</maven.resources.version>
     <maven.jetty.version>6.1.26</maven.jetty.version>

@@ -40,7 +40,7 @@
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>
-        <version>${jetty.plugin.version}</version>
+        <version>${maven.jetty.version}</version>
         <configuration>
           <jettyConfig>${project.build.directory}/jetty.xml</jettyConfig>
         </configuration>

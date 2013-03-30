@@ -27,6 +27,18 @@
   </parent>
 
   <properties>
+    <tile.clean>it.session.maven.tiles:alfresco-clean-tile:1.0</tile.clean>
+    <tile.compile>it.session.maven.tiles:alfresco-compile-tile:1.0</tile.compile>
+    <tile.resources>it.session.maven.tiles:alfresco-resources-tile:1.0</tile.resources>
+    <tile.testing>it.session.maven.tiles:alfresco-testing-tile:1.0</tile.testing>
+    <tile.amp>it.session.maven.tiles:alfresco-amp-tile:1.0</tile.amp>
+    <tile.jetty>it.session.maven.tiles:alfresco-amp-tile:1.0</tile.jetty>
   </properties>
+
+  <build>
+    <plugins>
+
+    </plugins>
+  </build>
 
 </project>

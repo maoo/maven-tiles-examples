@@ -38,30 +38,31 @@
     </pluginManagement>
   </build>
 
-  <profile>
-    <id>purge</id>
-    <build>
-      <plugins>
-        <!-- Cleaning Alfresco Repository storage/log folders/files -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <configuration>
-            <filesets>
-              <fileset>
-                <directory>${project.basedir}/${alfresco.data.location}</directory>
-              </fileset>
-              <fileset>
-                <directory>${app.log.dir}</directory>
-                <includes>
-                  <include>*.log</include>
-                </includes>
-              </fileset>
-            </filesets>
-          </configuration>
-        </plugin>
-      </plugins>
-    </build>
-  </profile>
-
+  <profiles>
+    <profile>
+      <id>purge</id>
+      <build>
+        <plugins>
+          <!-- Cleaning Alfresco Repository storage/log folders/files -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>${project.basedir}/${alfresco.data.location}</directory>
+                </fileset>
+                <fileset>
+                  <directory>${app.log.dir}</directory>
+                  <includes>
+                    <include>*.log</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
