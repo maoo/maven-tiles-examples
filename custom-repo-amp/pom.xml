@@ -34,11 +34,4 @@
     <tile.amp>it.session.maven.tiles:alfresco-amp-tile:1.0</tile.amp>
     <tile.jetty>it.session.maven.tiles:alfresco-amp-tile:1.0</tile.jetty>
   </properties>
-
-  <build>
-    <plugins>
-
-    </plugins>
-  </build>
-
 </project>
