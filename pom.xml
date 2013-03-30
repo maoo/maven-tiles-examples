@@ -23,6 +23,7 @@
   <description>Wicket Quickstart to test tiles-maven-plugin</description>
 
   <modules>
+    <module>wicket-build</module>
     <module>wicket-components</module>
     <module>wicket-webapp</module>
   </modules>
