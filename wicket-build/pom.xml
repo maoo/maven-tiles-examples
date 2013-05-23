@@ -28,6 +28,7 @@
     <module>tiles/session-repositories-tile</module>
     <module>tiles/maven-compile-tile</module>
     <module>tiles/maven-eclipse-tile</module>
+    <module>tiles/maven-enforcer-tile</module>
     <module>tiles/maven-jetty-tile</module>
     <module>tiles/maven-resources-tile</module>
   </modules>

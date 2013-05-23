@@ -30,6 +30,7 @@
 
   <properties>
     <tile.eclipse>it.session.maven.tiles:maven-eclipse-tile:1.0</tile.eclipse>
+    <tile.enforcer>it.session.maven.tiles:maven-enforcer-tile:1.0</tile.enforcer>
     <tile.maven.repositories>it.session.maven.tiles:session-repositories-tile:1.0</tile.maven.repositories>
     <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
 
