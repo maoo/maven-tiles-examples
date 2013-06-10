@@ -33,13 +33,7 @@
     <tile.enforcer>it.session.maven.tiles:session-enforcer-tile:1.0</tile.enforcer>
     <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
 
-    <!--it.session.maven.plugins:tiles-maven-plugin. 	The version currently in use is 0.8-beta-6-SNAPSHOT-->
-    <!--org.apache.maven.plugins:maven-surefire-plugin. 	The version currently in use is 2.10-->
-
     <!-- Tiles configuration -->
-    <!--<jetty.plugin.version>9.1</jetty.plugin.version>-->
-    <!--<wicket.version>1.5-RC4.2</wicket.version>-->
-
     <maventiles.plugin.version>0.8-beta-699</maventiles.plugin.version>
     <compile.plugin.debug>true</compile.plugin.debug>
     <eclipse.plugin.download.sources>true</eclipse.plugin.download.sources>
