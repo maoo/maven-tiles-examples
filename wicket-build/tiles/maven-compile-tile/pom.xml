@@ -24,14 +24,19 @@
     <compile.plugin.java.version>1.6</compile.plugin.java.version>
     <compile.plugin.debug>false</compile.plugin.debug>
     <compile.plugin.optimize>true</compile.plugin.optimize>
+    <compiler.plugin.version>3.1</compiler.plugin.version>
+    <jar.plugin.version>2.4</jar.plugin.version>
   </properties>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${jar.plugin.version}</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>${compiler.plugin.version}</version>
         <inherited>true</inherited>
         <configuration>
           <source>${compile.plugin.java.version}</source>

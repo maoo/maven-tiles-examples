@@ -17,8 +17,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wicket-components</artifactId>
   <packaging>jar</packaging>
-  <name>wicket-quickstart application</name>
-  <description>Wicket Quickstart Application Components</description>
+  <name>Wicket Quickstart - Components and API</name>
 
   <parent>
     <groupId>it.session.maven</groupId>
@@ -31,4 +30,20 @@
     <tile.resources>it.session.maven.tiles:maven-resources-tile:1.0</tile.resources>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket</artifactId>
+      <type>pom</type>
+    </dependency>
+    <!-- LOGGING DEPENDENCIES - LOG4J -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+  </dependencies>
 </project>

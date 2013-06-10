@@ -20,7 +20,7 @@
   <artifactId>session-repositories-tile</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Maven Tile - session Repositories</name>
+  <name>Maven Tile - Session.it Repositories</name>
 
   <repositories>
     <repository>

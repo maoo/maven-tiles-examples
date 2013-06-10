@@ -19,8 +19,7 @@
   <artifactId>wicket-quickstart</artifactId>
   <packaging>pom</packaging>
   <version>0.8-SNAPSHOT</version>
-  <name>wicket-quickstart</name>
-  <description>Wicket Quickstart to test tiles-maven-plugin</description>
+  <name>Wicket Quickstart - Parent POM</name>
 
   <modules>
     <module>wicket-build</module>
@@ -30,30 +29,73 @@
 
   <properties>
     <tile.eclipse>it.session.maven.tiles:maven-eclipse-tile:1.0</tile.eclipse>
-    <tile.enforcer>it.session.maven.tiles:maven-enforcer-tile:1.0</tile.enforcer>
-    <tile.maven.repositories>it.session.maven.tiles:session-repositories-tile:1.0</tile.maven.repositories>
+    <tile.repositories>it.session.maven.tiles:session-repositories-tile:1.0</tile.repositories>
+    <tile.enforcer>it.session.maven.tiles:session-enforcer-tile:1.0</tile.enforcer>
     <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
+
+    <!--it.session.maven.plugins:tiles-maven-plugin. 	The version currently in use is 0.8-beta-6-SNAPSHOT-->
+    <!--org.apache.maven.plugins:maven-surefire-plugin. 	The version currently in use is 2.10-->
 
     <!-- Tiles configuration -->
     <!--<jetty.plugin.version>9.1</jetty.plugin.version>-->
     <!--<wicket.version>1.5-RC4.2</wicket.version>-->
 
-    <maventiles.plugin.version>0.8-beta-6-SNAPSHOT</maventiles.plugin.version>
+    <maventiles.plugin.version>0.8-beta-699</maventiles.plugin.version>
     <compile.plugin.debug>true</compile.plugin.debug>
     <eclipse.plugin.download.sources>true</eclipse.plugin.download.sources>
-
+    <enforcer.plugin.disable>false</enforcer.plugin.disable>
   </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>it.session.maven</groupId>
+        <artifactId>wicket-dependencies</artifactId>
+        <version>1.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
+    <!--  Test and Provided deps used by some sub-modules -->
     <dependency>
-      <groupId>it.session.maven</groupId>
-      <artifactId>wicket-dependencies</artifactId>
-      <version>1.0</version>
-      <type>pom</type>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.aggregate</groupId>
+      <artifactId>jetty-all-server</artifactId>
     </dependency>
   </dependencies>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.15</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
       <plugin>
         <groupId>it.session.maven.plugins</groupId>

@@ -1,8 +1,6 @@
 package it.session.maven.tiles;
 
 import org.apache.wicket.util.tester.WicketTester;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Simple test using the WicketTester

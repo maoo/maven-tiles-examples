@@ -18,13 +18,21 @@
   <artifactId>maven-resources-tile</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>Maven Tile - Maven Resourcese Plugin configuration</name>
+  <name>Maven Tile - Maven Resources Plugin configuration</name>
 
   <properties>
+    <resources.plugin.version>2.6</resources.plugin.version>
     <resources.plugin.filtering>false</resources.plugin.filtering>
   </properties>
 
   <build>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${resources.plugin.version}</version>
+      </plugin>
+    </plugins>
     <resources>
       <resource>
         <filtering>${resources.plugin.filtering}</filtering>

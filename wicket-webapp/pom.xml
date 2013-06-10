@@ -17,8 +17,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wicket-webapp</artifactId>
   <packaging>war</packaging>
-  <name>wicket-quickstart webapp</name>
-  <description>Wicket Quickstart Webapp</description>
+  <name>Wicket Quickstart - Webapp</name>
 
   <parent>
     <groupId>it.session.maven</groupId>
@@ -30,7 +29,6 @@
     <tile.compilation>it.session.maven.tiles:maven-compile-tile:1.0</tile.compilation>
     <tile.resources>it.session.maven.tiles:maven-resources-tile:1.0</tile.resources>
     <tile.jetty>it.session.maven.tiles:maven-jetty-tile:1.0</tile.jetty>
-
     <jetty.plugin.version>8.1.0.RC5</jetty.plugin.version>
   </properties>
 

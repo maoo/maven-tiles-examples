@@ -15,32 +15,38 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>it.session.maven.tiles</groupId>
-  <artifactId>maven-eclipse-tile</artifactId>
+  <artifactId>session-enforcer-tile</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>Maven Tile - Maven Eclipse Plugin configuration</name>
+  <name>Maven Tile - Maven Enforcer Plugin configuration</name>
 
   <properties>
-    <!--
-    Invoking mvn eclipse:eclipse would fail if trying to define the plugin's version as property inherited from another
-    tiles: "The POM for org.apache.maven.plugins:maven-eclipse-plugin:jar:${eclipse.plugin.version}
-    is missing, no dependency information available."
-    It clearly fails because it does not resolve the plugin dependency; still need to find out
-    the reason why
-    -->
-    <eclipse.plugin.version>2.9</eclipse.plugin.version>
-    <eclipse.plugin.download.sources>false</eclipse.plugin.download.sources>
+    <enforcer.plugin.version>1.2</enforcer.plugin.version>
+    <enforcer.plugin.disable>true</enforcer.plugin.disable>
   </properties>
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>${eclipse.plugin.version}</version>
-        <configuration>
-          <downloadSources>${eclipse.plugin.download.sources}</downloadSources>
-        </configuration>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${enforcer.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>enforce</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <skip>${enforcer.plugin.disable}</skip>
+              <rules>
+                <requireUpperBoundDeps/>
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

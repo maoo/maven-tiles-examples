@@ -19,50 +19,51 @@
   <artifactId>wicket-dependencies</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>wicket-dependencies</name>
-  <description>Wicket Quickstart dependencies</description>
+  <name>Wicket Quickstart - Dependencies</name>
 
   <properties>
-    <maventiles.plugin.version>0.8-beta-5</maventiles.plugin.version>
-    <jetty.plugin.version>7.3.0.v20110203</jetty.plugin.version>
+    <jetty.version>7.3.0.v20110203</jetty.version>
     <wicket.version>1.5-RC4.2</wicket.version>
+    <log4j.version>1.2.16</log4j.version>
+    <slf4j.version>1.6.1</slf4j.version>
+    <junit.version>4.11</junit.version>
   </properties>
 
-  <dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <!--  WICKET DEPENDENCIES -->
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket</artifactId>
+        <version>${wicket.version}</version>
+        <type>pom</type>
+      </dependency>
 
-    <!--  WICKET DEPENDENCIES -->
-    <dependency>
-      <groupId>org.apache.wicket</groupId>
-      <artifactId>wicket</artifactId>
-      <version>${wicket.version}</version>
-      <type>pom</type>
-    </dependency>
+      <!-- LOGGING DEPENDENCIES - LOG4J -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
 
-    <!-- LOGGING DEPENDENCIES - LOG4J -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.6.1</version>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.16</version>
-    </dependency>
-
-    <!--  JUNIT DEPENDENCY FOR TESTING -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <!--<scope>test</scope>-->
-    </dependency>
-
-    <dependency>
-      <groupId>org.eclipse.jetty.aggregate</groupId>
-      <artifactId>jetty-all-server</artifactId>
-      <version>${jetty.plugin.version}</version>
-      <!--<scope>provided</scope>-->
-    </dependency>
-  </dependencies>
+      <!--  JUNIT DEPENDENCY FOR TESTING -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty.aggregate</groupId>
+        <artifactId>jetty-all-server</artifactId>
+        <version>${jetty.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>

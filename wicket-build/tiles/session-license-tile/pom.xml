@@ -18,7 +18,7 @@
   <artifactId>session-license-tile</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>Maven Tile - session License</name>
+  <name>Maven Tile - Session.it License</name>
 
   <licenses>
     <license>

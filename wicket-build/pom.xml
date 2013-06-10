@@ -19,8 +19,7 @@
   <artifactId>wicket-build</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>wicket-build</name>
-  <description>Wicket Quickstart Build</description>
+  <name>Wicket Quickstart - Build Behaviors Aggregator POM</name>
 
   <modules>
     <module>wicket-dependencies</module>
@@ -28,7 +27,7 @@
     <module>tiles/session-repositories-tile</module>
     <module>tiles/maven-compile-tile</module>
     <module>tiles/maven-eclipse-tile</module>
-    <module>tiles/maven-enforcer-tile</module>
+    <module>tiles/session-enforcer-tile</module>
     <module>tiles/maven-jetty-tile</module>
     <module>tiles/maven-resources-tile</module>
   </modules>
