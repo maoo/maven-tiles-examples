@@ -34,7 +34,7 @@
     <tile.licensing>it.session.maven.tiles:session-license-tile:1.0</tile.licensing>
 
     <!-- Tiles configuration -->
-    <maventiles.plugin.version>0.8-beta-699</maventiles.plugin.version>
+    <maventiles.plugin.version>0.8-beta-6-SNAPSHOT</maventiles.plugin.version>
     <compile.plugin.debug>true</compile.plugin.debug>
     <eclipse.plugin.download.sources>true</eclipse.plugin.download.sources>
     <enforcer.plugin.disable>false</enforcer.plugin.disable>
